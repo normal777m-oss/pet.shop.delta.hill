@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зоомагазин ДЕЛТА ХИЛ – Кладница</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #faf9f6;
+            color: #2e3b3b;
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            background: #4a6b5e;
+            color: white;
+            padding: 0.5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .social-email {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header {
+            background: white;
+            padding: 1.5rem 2rem 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-bottom: 1px solid #e2e9e5;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            background: #4a6b5e;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border: 3px solid #f0b27a;
+        }
+
+        .shop-name {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #3d5a4b;
+            line-height: 1.2;
+        }
+
+        .shop-sub {
+            font-size: 1.2rem;
+            color: #617a6b;
+            margin-top: 0.2rem;
+            font-style: italic;
+        }
+
+        .motto {
+            margin-top: 0.8rem;
+            font-size: 1.15rem;
+            border-left: 5px solid #c1d5cb;
+            padding-left: 1.5rem;
+            background: #f0f5f2;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0 30px 30px 0;
+            color: #2b4b3a;
+        }
+
+        nav {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-top: 1px dashed #b9cfc2;
+            padding-top: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e4d3b;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            border-bottom-color: #4a6b5e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: #e3ede7;
+            border-radius: 30px;
+            padding: 2.5rem 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .hero h2 {
+            font-size: 2.3rem;
+            font-weight: 400;
+            color: #2a523d;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-top: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #3d5a4b;
+            border-bottom: 2px solid #d1e0d7;
+            padding-bottom: 0.5rem;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e7f0ea;
+            transition: transform 0.2s;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid-item h3 {
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: #4f725b;
+            margin-bottom: 1rem;
+            border-left: 4px solid #b3cfc0;
+            padding-left: 1rem;
+        }
+
+        .grid-item ul {
+            list-style: none;
+        }
+
+        .grid-item li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .grid-item li::before {
+            content: "🐾";
+            position: absolute;
+            left: -5px;
+            color: #7b9c89;
+            font-size: 1rem;
+        }
+
+        .contact-info {
+            background: #f8f2e9;
+            border-radius: 30px;
+            padding: 2.5rem 3rem;
+            margin: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+        }
+
+        .contact-block p {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-block strong {
+            color: #4f725b;
+        }
+
+        .working-hours {
+            background: #e3ede7;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            border-left: 5px solid #f0b27a;
+        }
+
+        .working-hours p {
+            margin: 0.3rem 0;
+        }
+
+        .working-hours .days {
+            font-weight: 700;
+            color: #2b4b3a;
+        }
+
+        .working-hours .closed {
+            color: #b34a4a;
+            font-weight: 600;
+        }
+
+        .company-info {
+            font-size: 1rem;
+            color: #4f725b;
+            margin-top: 1rem;
+            border-top: 1px dashed #b9cfc2;
+            padding-top: 1rem;
+        }
+
+        .map-note {
+            background: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            display: inline-block;
+            border: 1px solid #b9cfc2;
+        }
+
+        .promo-box {
+            background: #dcebe2;
+            border-radius: 30px;
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .promo-box h3 {
+            font-size: 2rem;
+            color: #2b4b3a;
+            font-weight: 400;
+        }
+
+        .promo-box p {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+
+        .button {
+            background: white;
+            border: 2px solid #4a6b5e;
+            color: #2e3b3b;
+            padding: 0.8rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #4a6b5e;
+            color: white;
+        }
+
+        .grooming-badge {
+            display: inline-block;
+            background: #f0b27a;
+            color: #2e3b3b;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+        }
+
+        .video-section {
+            background: #fff3e0;
+            border-radius: 30px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        /* Стилове за галериите */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border: 3px solid #4a6b5e;
+            border-radius: 20px;
+        }
+
+        /* Специален стил за груминг галерията - по-малки снимки */
+        .grooming-gallery .gallery-item img {
+            border-color: #f0b27a;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #lightbox-img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 20px;
+            border: 5px solid white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: #f0b27a;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            user-select: none;
+            transition: 0.2s;
+        }
+
+        .lightbox-nav:hover {
+            color: #f0b27a;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 20px;
+            color: white;
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 15px;
+            border-radius: 30px;
+        }
+
+        footer {
+            background: #2e3b3b;
+            color: #dad7cc;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1rem;
+            border-top: 5px solid #7b9c89;
+        }
+
+        footer a {
+            color: #f0e6d3;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: start;
+                gap: 0.5rem;
+            }
+            .shop-name {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .logo-area {
+                justify-content: center;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div>
+            <a href="tel:+359889771477">📞 088 977 1477</a>
+            <span style="color:#c4d5cb;">|</span>
+            <a href="mailto:amemilov77@gmail.com">✉️ amemilov77@gmail.com</a>
+        </div>
+        <div class="social-email">
+            <a href="https://www.facebook.com/profile.php?id=61584065617547" target="_blank">📘 Зоомагазин ДЕЛТА ХИЛ</a>
+            <span>📍 с. Кладница, Делта Хил</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="logo-image">
+                    <div>Delta</div>
+                    <div style="font-size:1.4rem;">HILL</div>
+                </div>
+                <div>
+                    <div class="shop-name">
+                        Зоомагазин ДЕЛТА ХИЛ
+                        <span class="grooming-badge">✨ Нов груминг салон ✨</span>
+                    </div>
+                    <div class="shop-sub">PET SHOP & GROOMING by Max&Morty pet shop</div>
+                </div>
+            </div>
+            <div class="motto">
+                „Магазин за сухи и мокри храни, лакомства, аксесоари, хигиенни навици, козметика, играчки, дрехи, легла, клетки и всякакви други неща важни за вашите домашни любимци“
+            </div>
+            <nav>
+                <a href="#asortiment">Асортимент</a>
+                <a href="#grooming">Груминг салон</a>
+                <a href="#za-nas">За нас</a>
+                <a href="#galeria">Галерия</a>
+                <a href="#kontakti">Контакти</a>
+                <a href="#promocii">Промоции</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="hero" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2>Добре дошли в Зоомагазин ДЕЛТА ХИЛ 🐶🐱</h2>
+                <p>Новооткрит местен зоомагазин в с. Кладница (от януари 2026). Вече работи и нашият <strong>груминг салон</strong> – разлаяхме кучетата с цените! 🐩✂️</p>
+            </div>
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                <img src="outdoor zoo delta hill.jpg" alt="Табела на Зоомагазин ДЕЛТА ХИЛ" style="max-width: 100%; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 4px solid #f0b27a;">
+                <p style="margin-top: 0.5rem;"><em>„300МАГАЗИН И ГРУМИНГ Delta Hill“</em></p>
+            </div>
+        </div>
+
+        <section id="asortiment">
+            <h2 class="section-title">Нашият асортимент</h2>
+            <div class="grid-list">
+                <div class="grid-item">
+                    <h3>🍖 Храни</h3>
+                    <ul>
+                        <li>Сухи храни за кучета и котки (премиум клас)</li>
+                        <li>Мокри храни – консерви, паучове, сосове</li>
+                        <li>Специализирани храни за гризачи, птици, рибки</li>
+                        <li>Ветеринарни диети и храни за специални нужди</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>🦴 Лакомства</h3>
+                    <ul>
+                        <li>Бисквити, снаксове, дентални пръчици</li>
+                        <li>Сушени меса, свински уши, говежди кожи</li>
+                        <li>Витаминни и функционални лакомства</li>
+                        <li>Лакомства за обучение и награда</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>🧸 Играчки & Аксесоари</h3>
+                    <ul>
+                        <li>Играчки за дъвчене, плюшени, топки, фризбита</li>
+                        <li>Поводи, нагръдници, каишки, намордници</li>
+                        <li>Купи, хранилки, поилки, постелки</li>
+                        <li>Дрехи, легла, къщички и транспортни клетки</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>🧴 Хигиена & Грижа</h3>
+                    <ul>
+                        <li>Шампоани, балсами, спрейове за козина</li>
+                        <li>Препарати за уши, очи, зъби</li>
+                        <li>Подушки, билкови отвари, репеленти</li>
+                        <li>Тоалетни принадлежности, подложки, пелени</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>🏡 Мебели & Клетки</h3>
+                    <ul>
+                        <li>Клетки за птици, гризачи, транспортьори</li>
+                        <li>Легла, възглавници, волиери и кошари</li>
+                        <li>Ноктоточки, стълби, хамаци за котки</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>🎀 Облекла & Екстри</h3>
+                    <ul>
+                        <li>Облекла за малки породи, дъждобрани, жилетки</li>
+                        <li>Облици, панделки, темчета за специални поводи</li>
+                        <li>Празнични и сезонни аксесоари</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Груминг салон с видео и ГАЛЕРИЯ -->
+        <section id="grooming">
+            <h2 class="section-title">🛁 Нашият груминг салон</h2>
+            
+            <!-- Видео -->
+            <div class="video-section">
+                <p style="font-size: 1.4rem; margin-bottom: 1rem;">🎥 Вижте видеото ни:</p>
+                
+                <div class="video-wrapper">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2002272887039847%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+
+                <div style="background: white; border-radius: 20px; padding: 1.5rem; margin-top: 2rem; text-align: left;">
+                    <p style="font-size: 1.2rem;">✂️ <strong>На вниманието на всички от:</strong></p>
+                    <p style="font-size: 1.1rem;">📍 Делта Хил, Драгичево, Владая, Марчаево, Рударци, Кладница и региона, та даже и от Перник!</p>
+                    <p style="font-size: 1.2rem; margin-top: 1rem;">В нашият зоомагазин вече има и Груминг салон. Очакваме ви! 🐾</p>
+                </div>
+            </div>
+
+            <!-- ГАЛЕРИЯ ЗА ГРУМИНГ САЛОНА (5 снимки) -->
+            <div style="background: #fff3e0; border-radius: 30px; padding: 2rem; margin-top: 2rem;">
+                <h3 style="font-size: 1.8rem; color: #2b4b3a; margin-bottom: 1.5rem; text-align: center;">📸 Снимки от груминг салона</h3>
+                
+                <div class="gallery-grid grooming-gallery" id="grooming-gallery">
+                    <!-- Тук JavaScript ще генерира снимките от 1 до 5 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="za-nas">
+            <h2 class="section-title">За Зоомагазин ДЕЛТА ХИЛ</h2>
+            <div style="background: #eef7f2; border-radius: 30px; padding: 2rem; margin-bottom: 2rem;">
+                <p style="font-size: 1.25rem; margin-bottom: 1rem;"><strong>Местен магазин, не верига.</strong> Познаваме нашите клиенти и техните любимци по име.</p>
+                
+                <div style="background: white; border-radius: 20px; padding: 1.5rem; margin: 2rem 0; border-left: 8px solid #4a6b5e;">
+                    <p style="font-size: 1.3rem; margin-bottom: 1rem;">❤️ <strong>За нас</strong></p>
+                    <p style="font-size: 1.2rem;">Отворихме врати през януари 2026 година в с. Кладница, Делта Хил. Само за месец и половина успяхме да създадем уютно място за стопани и любимци, а отскоро работи и нашият груминг салон. Предлагаме богат асортимент от храни, аксесоари и всичко необходимо за здравословното и безгрижно отглеждане на вашите домашни любимци. Сърцето ни е семейно и отговорно – точно какъвто бихме искали да е магазинът, в който ние да пазаруваме за нашите животинки.</p>
+                </div>
+
+                <div style="background: #fff3e0; border-radius: 20px; padding: 1.5rem; margin: 2rem 0 1rem 0; border-left: 8px solid #f0b27a;">
+                    <p style="font-size: 1.3rem; margin-bottom: 0.8rem;">📢 <strong>Както споделихме и във Facebook:</strong></p>
+                    <p style="font-size: 1.2rem; font-style: italic;">„Зоомагазин ДЕЛТА ХИЛ е в Делта Хил. Почти месец и половина откакто отворихме и само седмица откакто заработи Груминг салона ни и разлаяхме кучетата с цените, които са при нас. Даже малко закъсняха, но това ни мотивира още повече!“</p>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                    <div style="flex:1; min-width:200px; background: white; border-radius: 20px; padding: 1.5rem;">
+                        <span style="font-size: 2rem;">✔️</span>
+                        <h3 style="margin: 0.5rem 0;">Нашият подход</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 0.7rem;">🐾 Подбираме само качествени храни и аксесоари</li>
+                            <li style="margin-bottom: 0.7rem;">🐾 Ако даден продукт не отговаря на стандартите ни – го спираме</li>
+                            <li style="margin-bottom: 0.7rem;">🐾 По-добре по-тесен, но проверен асортимент</li>
+                        </ul>
+                    </div>
+                    <div style="flex:1; min-width:200px; background: white; border-radius: 20px; padding: 1.5rem;">
+                        <span style="font-size: 2rem;">⭐</span>
+                        <h3 style="margin: 0.5rem 0;">Ново начало</h3>
+                        <p>От януари 2026 в Делта Хил. Благодарим на всички, които ни посетиха през първия месец и половина! Очакваме ви отново.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ГАЛЕРИЯ АСОРТИМЕНТ - всички снимки от 6 до 32 -->
+        <section id="galeria">
+            <h2 class="section-title">📸 Разгледайте нашия магазин</h2>
+            
+            <div style="background: #f8f2e9; border-radius: 30px; padding: 2rem; margin-bottom: 3rem;">
+                <p style="text-align: center; font-size: 1.3rem; margin-bottom: 2rem;">Кликнете върху снимка за по-голям изглед (27 снимки)</p>
+                
+                <div class="gallery-grid" id="assortment-gallery">
+                    <!-- Тук JavaScript ще генерира снимките -->
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakti">
+            <h2 class="section-title">Контакти и адрес</h2>
+            <div class="contact-info" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <p><strong>📍 Адрес:</strong> Делта Хил, ул. "София" №91, с. Кладница</p>
+                    <p><strong>📞 Телефон:</strong> <a href="tel:+359889771477" style="color:#2e3b3b;">088 977 1477</a></p>
+                    <p><strong>✉️ Имейл:</strong> <a href="mailto:amemilov77@gmail.com">amemilov77@gmail.com</a></p>
+                    
+                    <div class="working-hours">
+                        <p><span class="days">🕒 РАБОТНО ВРЕМЕ:</span></p>
+                        <p><strong>ВТОРНИК - СЪБОТА</strong> <span style="float: right;">10:00 - 20:00</span></p>
+                        <p><span class="closed">❌ ПОЧИВНИ ДНИ: НЕДЕЛЯ И ПОНЕДЕЛНИК</span></p>
+                    </div>
+
+                    <div class="company-info">
+                        <p><strong>Дани М - Вероника Маркова ЕООД</strong></p>
+                        <p>МОЛ: Вероника Маркова</p>
+                    </div>
+                    
+                    <p><strong>🚗 Паркиране:</strong> пред магазина – свободни места</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="outdoor zoo delta hill.jpg" alt="Вход на магазина" style="max-width: 100%; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 4px solid #f0b27a;">
+                    <p style="margin-top: 1rem;"><strong>📍 Търсете тази табела!</strong></p>
+                    <div class="map-note" style="margin-top: 1rem;">
+                        ⚡ Лесен достъп – на главния път през с. Кладница.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="promocii">
+            <div class="promo-box">
+                <h3>🔥 СПЕЦИАЛНА ПРОМОЦИЯ 🔥</h3>
+                <p style="font-size: 1.8rem; margin: 0.5rem 0;">10% ОТСТЪПКА</p>
+                <p style="font-size: 1.4rem;">за всички сметки над 60,00 евро в зоомагазина! 🐾🔝😎</p>
+                <p style="font-size: 1.2rem;">Валидно за целия асортимент – храни, аксесоари, играчки и други.</p>
+                <a href="#" class="button">Заповядайте в Зоомагазин ДЕЛТА ХИЛ</a>
+                <p style="margin-top: 1rem; font-size: 1rem;">Комбинира се с редовните ниски цени в груминг салона!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Зоомагазин ДЕЛТА ХИЛ – с. Кладница. Всички права запазени.</p>
+        <p>by Max&Morty pet shop | Дани М - Вероника Маркова ЕООД | МОЛ: Вероника Маркова</p>
+        <p>Отворен през януари 2026 – благодарим за доверието! 🐕🐈</p>
+        <p><a href="#">⬆️ Към началото</a></p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+        <img id="lightbox-img" src="" alt="Голям изглед">
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <script>
+        // ===== ГРУМИНГ ГАЛЕРИЯ (снимки 1-5) =====
+        const groomingGallery = document.getElementById('grooming-gallery');
+        const groomingImages = [];
+        
+        for (let i = 1; i <= 5; i++) {
+            groomingImages.push(`gruming salon zoo delta hill ${i}.jpg`);
+        }
+
+        groomingImages.forEach((file, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.onclick = () => openLightbox(index, 'grooming');
+            
+            const img = document.createElement('img');
+            img.src = file;
+            img.alt = `Груминг салон ${index + 1}`;
+            img.onerror = function() {
+                this.style.display = 'none';
+            };
+            
+            item.appendChild(img);
+            groomingGallery.appendChild(item);
+        });
+
+        // ===== АСОРТИМЕНТ ГАЛЕРИЯ (снимки 6-32) =====
+        const assortmentGallery = document.getElementById('assortment-gallery');
+        const assortmentImages = [];
+        
+        for (let i = 6; i <= 32; i++) {
+            assortmentImages.push(`asortiment zoo delta hill ${i}.jpg`);
+        }
+
+        assortmentImages.forEach((file, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.onclick = () => openLightbox(index, 'assortment');
+            
+            const img = document.createElement('img');
+            img.src = file;
+            img.alt = `Асортимент ${index + 6}`;
+            img.onerror = function() {
+                this.style.display = 'none';
+            };
+            
+            item.appendChild(img);
+            assortmentGallery.appendChild(item);
+        });
+
+        // ===== ОБЕДИНЕНА LIGHTBOX =====
+        let currentImageIndex = 0;
+        let currentGallery = 'assortment'; // 'assortment' или 'grooming'
+        
+        function getCurrentImageArray() {
+            return currentGallery === 'grooming' ? groomingImages : assortmentImages;
+        }
+
+        function openLightbox(index, galleryType) {
+            currentGallery = galleryType;
+            currentImageIndex = index;
+            const images = getCurrentImageArray();
+            
+            const img = document.getElementById('lightbox-img');
+            img.src = images[index];
+            document.getElementById('lightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            updateCounter();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            const images = getCurrentImageArray();
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            
+            const img = document.getElementById('lightbox-img');
+            img.src = images[currentImageIndex];
+            updateCounter();
+        }
+
+        function updateCounter() {
+            const images = getCurrentImageArray();
+            document.getElementById('lightbox-counter').textContent = 
+                `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        // Клавишна навигация
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
